@@ -2,11 +2,12 @@
   "name": "test-streams",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc --outDir build",
-    "start": "nodemon index.ts"
+    "esbuild": "esbuild ./web/index.js --bundle --minify --sourcemap --target=chrome109 --outfile=build/out.js --loader:.js=jsx",
+    "start": "nodemon server.ts"
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,10 @@
     "prettier": "^2.8.4",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "esbuild": "^0.17.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
